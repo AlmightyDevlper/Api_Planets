@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "background2.jpg",
+      "filename" : "planetsLaunchScreen.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "planetsLaunchScreen@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "planetsLaunchScreen@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
