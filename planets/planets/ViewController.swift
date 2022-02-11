@@ -8,8 +8,14 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var searchButtonView: UIView!
+    @IBOutlet weak var fromYearInput: UITextField!
+    @IBOutlet weak var toYearInput: UITextField!
+    let date = Date()
+    let calender = Calendar.current
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +29,12 @@ class ViewController: UIViewController {
         self.searchView.layer.borderColor = CGColor.init(red: 253, green: 253, blue: 253, alpha: 1)
         self.searchView.layer.borderWidth = 1
         
+        self.toYearInput.text = String(calender.component(.year, from: date))
+        
+    }
+    
+    @IBAction func searchPlanetButton(_ sender: Any) {
+        // call the Nasa Api
     }
 
 
