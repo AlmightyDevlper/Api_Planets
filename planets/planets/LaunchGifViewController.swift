@@ -4,22 +4,19 @@ import WebKit
 class LaunchGifViewController: UIViewController, WKUIDelegate {
 
     @IBOutlet weak var launchGif: WKWebView!
-    var planet = NasaApi(planet: <#String#>, description: <#String#>, url: "")
-    var nasaURL = URL(string: "https://api.nasa.gov/planetary/apod?api_key=067pxmSK8HEV7H3Oxot8uOiSxXR0B0okgQXaGSFR")!
     var url_api: URLRequest!
+    var timer: Timer!
+    var webConfig = WKWebViewConfiguration()
     
     override func loadView() {
-        let webConfig = WKWebViewConfiguration()
-        launchGif! = WKWebView(frame: .zero, configuration: webConfig)
+        self.launchGif = WKWebView(frame: .zero, configuration: self.webConfig)
         launchGif.uiDelegate = self
         view = launchGif
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Call the requested url
         showGif()
-        
     }
     
     func showGif() {
@@ -30,16 +27,29 @@ class LaunchGifViewController: UIViewController, WKUIDelegate {
         launchGif.loadHTMLString(myURL, baseURL: nil)
     
         //After 6 seconds we go to the overviewpage
+        Timer.scheduledTimer(withTimeInterval: 6.0, repeats: false) {_ in
+            self.searchForPlanet(searchObj: "mars")
+        }
         //we gonne make also an api call
     }
     
     func searchForPlanet(searchObj: String) {
         
+        let urlNasa = (URL(string: "https://images-api.nasa.gov/search?q={mars}") ?? URL(string: "https://images-api.nasa.gov/search?q={mars}"))!
+        let sess = URLSession.shared
+        let req = URLRequest(url: urlNasa)
         
-        self.url_api.httpMethod = "GET"
-        self.url_api.url = self.nasaURL
-        
-        self.url_api.mainDocumentURL = URL(string: "GET/search?q={"+searchObj+"}")
+        let task = sess.dataTask(with: req, completionHandler: {data, response, error in
+            guard error == nil else {
+                print("fuck")
+                return
+            }
+            guard data == nil else {
+                print(data!)
+                return
+            }
+        })
+        task.resume()
         
     }
 

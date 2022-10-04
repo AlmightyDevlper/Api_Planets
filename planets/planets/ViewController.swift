@@ -41,7 +41,6 @@ class ViewController: UIViewController {
         //Then go to the overview page
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextView = storyboard.instantiateViewController(withIdentifier: "LaunchGif") as! LaunchGifViewController
-        nextView.searchForPlanet(searchObj: searchInput.text!)
         self.present(nextView, animated: true, completion: nil)
         
     }
