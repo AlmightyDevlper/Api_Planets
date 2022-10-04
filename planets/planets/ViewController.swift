@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var searchButtonView: UIView!
     @IBOutlet weak var fromYearInput: UITextField!
     @IBOutlet weak var toYearInput: UITextField!
+    @IBOutlet weak var searchInput: UITextField!
+    
+    //connect search input to var
     let date = Date()
     let calender = Calendar.current
     
@@ -34,7 +37,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func searchPlanetButton(_ sender: Any) {
-        // call the Nasa Api
+    
+        //Then go to the overview page
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextView = storyboard.instantiateViewController(withIdentifier: "LaunchGif") as! LaunchGifViewController
+        nextView.searchForPlanet(searchObj: searchInput.text!)
+        self.present(nextView, animated: true, completion: nil)
+        
     }
 
 
