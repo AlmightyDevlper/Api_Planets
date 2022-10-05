@@ -7,6 +7,7 @@ class LaunchGifViewController: UIViewController, WKUIDelegate {
     var url_api: URLRequest!
     var timer: Timer!
     var webConfig = WKWebViewConfiguration()
+    var nasaDataArray:[String] = []
     
     override func loadView() {
         self.launchGif = WKWebView(frame: .zero, configuration: self.webConfig)
@@ -34,23 +35,35 @@ class LaunchGifViewController: UIViewController, WKUIDelegate {
     }
     
     func searchForPlanet(searchObj: String) {
+        let stringURL: String = "https://images-api.nasa.gov/search?q=\(searchObj)"
+        let url = URL(string: stringURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
         
-        let urlNasa = (URL(string: "https://images-api.nasa.gov/search?q={mars}") ?? URL(string: "https://images-api.nasa.gov/search?q={mars}"))!
+        guard url == url else {
+            print("fuck url")
+            return
+        }
+        
         let sess = URLSession.shared
-        let req = URLRequest(url: urlNasa)
         
-        let task = sess.dataTask(with: req, completionHandler: {data, response, error in
-            guard error == nil else {
-                print("fuck")
-                return
+        let req = URLRequest(url: url)
+        guard req == req else {
+            print("fuck req")
+            return
+        }
+        
+        let task = sess.dataTask(with: req as URLRequest) {(data, response, error) in
+            if error == nil && data != nil {
+                
+                do {
+                    if let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String:Any] {
+                        print(json)
+                    }
+                } catch {
+                    print("JSONSerialization error:", error)
+                }
             }
-            guard data == nil else {
-                print(data!)
-                return
-            }
-        })
+        }
         task.resume()
-        
     }
 
 
