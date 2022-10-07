@@ -10,7 +10,7 @@ import UIKit
 
 class OverViewController: UIViewController {
     
-    
+    var jsonDataReceiver: [String:Any] = [:]
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {

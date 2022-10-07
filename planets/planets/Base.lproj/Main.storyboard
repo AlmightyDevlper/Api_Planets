@@ -172,7 +172,7 @@
         <!--Over View Controller-->
         <scene sceneID="F81-EH-Nu0">
             <objects>
-                <viewController id="M95-bd-jyc" customClass="OverViewController" customModule="planets" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OverView" id="M95-bd-jyc" customClass="OverViewController" customModule="planets" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bg1-bI-Jru">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

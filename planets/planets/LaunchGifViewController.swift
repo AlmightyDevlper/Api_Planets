@@ -9,9 +9,10 @@ class LaunchGifViewController: UIViewController, WKUIDelegate {
     var webConfig = WKWebViewConfiguration()
     var nasaDataArray:[String] = []
     var searchObject: String?
+    var jsonData: [String:Any] = [:]
     
     override func loadView() {
-        WKWebView(frame: .zero, configuration: self.webConfig)
+        launchGif = WKWebView(frame: .zero, configuration: self.webConfig)
         launchGif.uiDelegate = self
         view = launchGif
     }
@@ -22,6 +23,10 @@ class LaunchGifViewController: UIViewController, WKUIDelegate {
     }
     
     func showGif() {
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextView = storyboard.instantiateViewController(withIdentifier: "OverView") as! OverViewController
+
         let myURL = "<iframe  src=\"https://giphy.com/embed/xiN0BXMETVsx0AxTXt\"  style=\" height:100vh;width:100vw;background-color: black !important;\" frameBorder=\"0\" class=\"giphy-embed\" allowFullScreen></iframe>"
         self.launchGif.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 100)
         self.launchGif.scrollView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 100)
@@ -33,11 +38,16 @@ class LaunchGifViewController: UIViewController, WKUIDelegate {
         //After 6 seconds we go to the overviewpage
         Timer.scheduledTimer(withTimeInterval: 6.0, repeats: false) {_ in
             self.searchForPlanet(searchObj: self.searchObject!)
+            //Call overview
+            //if ( !self.jsonData.isEmpty) {
+                //nextView.jsonDataReceiver = self.jsonData
+                self.present(nextView, animated: true, completion: nil)
+            //}
         }
         //we gonne make also an api call
     }
     
-    func searchForPlanet(searchObj: String) {
+    func searchForPlanet(searchObj: String){
         if ( searchObj != "" ) {
             
             let stringURL: String = "https://images-api.nasa.gov/search?q=\(searchObj)&page=1"
@@ -61,8 +71,10 @@ class LaunchGifViewController: UIViewController, WKUIDelegate {
                     
                     do {
                         if let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String:Any] {
+                            self.jsonData = json
                             print(json)
                         }
+                        
                     } catch {
                         print("JSONSerialization error:", error)
                     }
