@@ -169,6 +169,49 @@
             </objects>
             <point key="canvasLocation" x="873.91304347826099" y="61.607142857142854"/>
         </scene>
+        <!--Over View Controller-->
+        <scene sceneID="F81-EH-Nu0">
+            <objects>
+                <viewController id="M95-bd-jyc" customClass="OverViewController" customModule="planets" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bg1-bI-Jru">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N9o-Gs-dNu">
+                                <rect key="frame" x="0.0" y="44" width="414" height="842"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tCell" id="570-Aj-9ip" customClass="tCellTableViewCell" customModule="planets" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="570-Aj-9ip" id="7ng-7n-Bq1">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5Nq-Sd-zcz"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="N9o-Gs-dNu" secondAttribute="bottom" constant="10" id="Lww-WU-SIo"/>
+                            <constraint firstAttribute="trailing" secondItem="N9o-Gs-dNu" secondAttribute="trailing" id="Xf0-2c-3eC"/>
+                            <constraint firstItem="N9o-Gs-dNu" firstAttribute="top" secondItem="5Nq-Sd-zcz" secondAttribute="top" id="gig-R9-S83"/>
+                            <constraint firstAttribute="trailing" secondItem="N9o-Gs-dNu" secondAttribute="trailing" id="mDm-j7-AfX"/>
+                            <constraint firstItem="N9o-Gs-dNu" firstAttribute="top" secondItem="5Nq-Sd-zcz" secondAttribute="top" id="suG-zk-naz"/>
+                            <constraint firstItem="N9o-Gs-dNu" firstAttribute="leading" secondItem="bg1-bI-Jru" secondAttribute="leading" id="xNC-z3-jts"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="N9o-Gs-dNu" id="hwo-nO-BWc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jRN-p0-Ei1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1695.6521739130435" y="61.607142857142854"/>
+        </scene>
     </scenes>
     <resources>
         <image name="homeScreen_shuttle2" width="428" height="926"/>

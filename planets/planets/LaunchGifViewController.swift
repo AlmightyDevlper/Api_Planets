@@ -8,9 +8,10 @@ class LaunchGifViewController: UIViewController, WKUIDelegate {
     var timer: Timer!
     var webConfig = WKWebViewConfiguration()
     var nasaDataArray:[String] = []
+    var searchObject: String?
     
     override func loadView() {
-        self.launchGif = WKWebView(frame: .zero, configuration: self.webConfig)
+        WKWebView(frame: .zero, configuration: self.webConfig)
         launchGif.uiDelegate = self
         view = launchGif
     }
@@ -26,44 +27,49 @@ class LaunchGifViewController: UIViewController, WKUIDelegate {
         self.launchGif.scrollView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 100)
         launchGif.isOpaque = false
         launchGif.loadHTMLString(myURL, baseURL: nil)
+        //define next view
+        
     
         //After 6 seconds we go to the overviewpage
         Timer.scheduledTimer(withTimeInterval: 6.0, repeats: false) {_ in
-            self.searchForPlanet(searchObj: "mars")
+            self.searchForPlanet(searchObj: self.searchObject!)
         }
         //we gonne make also an api call
     }
     
     func searchForPlanet(searchObj: String) {
-        let stringURL: String = "https://images-api.nasa.gov/search?q=\(searchObj)"
-        let url = URL(string: stringURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
-        
-        guard url == url else {
-            print("fuck url")
-            return
-        }
-        
-        let sess = URLSession.shared
-        
-        let req = URLRequest(url: url)
-        guard req == req else {
-            print("fuck req")
-            return
-        }
-        
-        let task = sess.dataTask(with: req as URLRequest) {(data, response, error) in
-            if error == nil && data != nil {
-                
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String:Any] {
-                        print(json)
+        if ( searchObj != "" ) {
+            
+            let stringURL: String = "https://images-api.nasa.gov/search?q=\(searchObj)&page=1"
+            let url = URL(string: stringURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+            
+            guard url == url else {
+                print("fuck url")
+                return
+            }
+            
+            let sess = URLSession.shared
+            
+            let req = URLRequest(url: url)
+            guard req == req else {
+                print("fuck req")
+                return
+            }
+            //TODO: move data to overview page
+            let task = sess.dataTask(with: req as URLRequest) {(data, response, error) in
+                if error == nil && data != nil {
+                    
+                    do {
+                        if let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String:Any] {
+                            print(json)
+                        }
+                    } catch {
+                        print("JSONSerialization error:", error)
                     }
-                } catch {
-                    print("JSONSerialization error:", error)
                 }
             }
+            task.resume()
         }
-        task.resume()
     }
 
 

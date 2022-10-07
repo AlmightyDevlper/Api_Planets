@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		043C1DA627B4626A00D36F03 /* AstroSpace-eZ2Bg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 043C1DA527B4626A00D36F03 /* AstroSpace-eZ2Bg.ttf */; };
 		043C1DA927B4628900D36F03 /* Agelast-mLlAm.otf in Resources */ = {isa = PBXBuildFile; fileRef = 043C1DA827B4628900D36F03 /* Agelast-mLlAm.otf */; };
-		043DC9FC28EB737B0051AC0D /* nasaApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043DC9FB28EB737B0051AC0D /* nasaApi.swift */; };
 		0477C87327B2FFA40077BAE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0477C87227B2FFA40077BAE6 /* AppDelegate.swift */; };
 		0477C87527B2FFA40077BAE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0477C87427B2FFA40077BAE6 /* SceneDelegate.swift */; };
 		0477C87727B2FFA40077BAE6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0477C87627B2FFA40077BAE6 /* ViewController.swift */; };
@@ -17,12 +16,13 @@
 		0477C87C27B2FFA50077BAE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0477C87B27B2FFA50077BAE6 /* Assets.xcassets */; };
 		0477C87F27B2FFA50077BAE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0477C87D27B2FFA50077BAE6 /* LaunchScreen.storyboard */; };
 		04AC183227B6EFAD00976902 /* LaunchGifViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AC183127B6EFAD00976902 /* LaunchGifViewController.swift */; };
+		04DE1BA428F0C790006FAAD6 /* OverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DE1BA328F0C790006FAAD6 /* OverViewController.swift */; };
+		04DE1BA728F0D0DD006FAAD6 /* tCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DE1BA628F0D0DD006FAAD6 /* tCellTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		043C1DA527B4626A00D36F03 /* AstroSpace-eZ2Bg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AstroSpace-eZ2Bg.ttf"; sourceTree = "<group>"; };
 		043C1DA827B4628900D36F03 /* Agelast-mLlAm.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Agelast-mLlAm.otf"; sourceTree = "<group>"; };
-		043DC9FB28EB737B0051AC0D /* nasaApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nasaApi.swift; sourceTree = "<group>"; };
 		0477C86F27B2FFA40077BAE6 /* planets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = planets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0477C87227B2FFA40077BAE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0477C87427B2FFA40077BAE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +32,8 @@
 		0477C87E27B2FFA50077BAE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0477C88027B2FFA50077BAE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04AC183127B6EFAD00976902 /* LaunchGifViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchGifViewController.swift; sourceTree = "<group>"; };
+		04DE1BA328F0C790006FAAD6 /* OverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewController.swift; sourceTree = "<group>"; };
+		04DE1BA628F0D0DD006FAAD6 /* tCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tCellTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +84,8 @@
 				0477C87D27B2FFA50077BAE6 /* LaunchScreen.storyboard */,
 				0477C88027B2FFA50077BAE6 /* Info.plist */,
 				043C1DA427B4622D00D36F03 /* fonts */,
-				043DC9FB28EB737B0051AC0D /* nasaApi.swift */,
+				04DE1BA328F0C790006FAAD6 /* OverViewController.swift */,
+				04DE1BA628F0D0DD006FAAD6 /* tCellTableViewCell.swift */,
 			);
 			path = planets;
 			sourceTree = "<group>";
@@ -159,10 +162,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DE1BA728F0D0DD006FAAD6 /* tCellTableViewCell.swift in Sources */,
 				04AC183227B6EFAD00976902 /* LaunchGifViewController.swift in Sources */,
 				0477C87727B2FFA40077BAE6 /* ViewController.swift in Sources */,
-				043DC9FC28EB737B0051AC0D /* nasaApi.swift in Sources */,
 				0477C87327B2FFA40077BAE6 /* AppDelegate.swift in Sources */,
+				04DE1BA428F0C790006FAAD6 /* OverViewController.swift in Sources */,
 				0477C87527B2FFA40077BAE6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
